@@ -11,7 +11,7 @@ const styles = theme => ({
     }
 });
 
-class Signup extends React.Component {
+class Signin extends React.Component {
     render() {
         const { classes } = this.props;
         return (
@@ -22,7 +22,7 @@ class Signup extends React.Component {
                             <Face />
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="name" label="Name" type="name" fullWidth autoFocus required />
+                            <TextField id="email" label="Email Address" type="email" fullWidth autoFocus required />
                         </Grid>
                     </Grid>
                     <Grid container spacing={8} alignItems="flex-end">
@@ -30,23 +30,7 @@ class Signup extends React.Component {
                             <Fingerprint />
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="email" label="Email Address" type="email" fullWidth required />
-                        </Grid>
-                    </Grid>
-                    <Grid container spacing={8} alignItems="flex-end">
-                        <Grid item>
-                            <Fingerprint />
-                        </Grid>
-                        <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="password" label="Password" type="Password" fullWidth required />
-                        </Grid>
-                    </Grid>
-                    <Grid container spacing={8} alignItems="flex-end">
-                        <Grid item>
-                            <Fingerprint />
-                        </Grid>
-                        <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="password" label="Confirm Password" type="Password" fullWidth required />
+                            <TextField id="password" label="Password" type="password" fullWidth required />
                         </Grid>
                     </Grid>
                     <Grid container alignItems="center" justify="space-between">
@@ -73,4 +57,4 @@ class Signup extends React.Component {
     }
 }
 
-export default withStyles(styles)(Signup);
+export default withStyles(styles)(Signin);
