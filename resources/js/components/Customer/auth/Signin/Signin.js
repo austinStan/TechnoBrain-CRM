@@ -16,9 +16,9 @@ class Signin extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <Paper className={classes.padding} style={{ marginLeft: "30%",marginTop: "50px",marginRight: "30%"}}>
+            <Paper className={classes.padding} style={{ marginLeft: "20%",marginTop: "50px",marginRight: "20%"}}>
                 <div className={classes.margin} >
-                    <Grid container spacing={8} alignItems="flex-end">
+                    <Grid container spacing={2} alignItems="flex-end">
                         <Grid item>
                             <Face />
                         </Grid>
@@ -26,7 +26,7 @@ class Signin extends React.Component {
                             <TextField id="email" label="Email Address" type="email" fullWidth autoFocus required />
                         </Grid>
                     </Grid>
-                    <Grid container spacing={8} alignItems="flex-end">
+                    <Grid container spacing={2} alignItems="flex-end">
                         <Grid item>
                             <LockIcon />
                         </Grid>

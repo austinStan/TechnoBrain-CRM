@@ -2,7 +2,7 @@ import React from "react";
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
-import { Face, Fingerprint } from '@material-ui/icons';
+import { Face, Fingerprint, FormatListBulletedRounded } from '@material-ui/icons';
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit * 2,
@@ -17,38 +17,38 @@ class Signup extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <Paper className={classes.padding} style={{ marginLeft: "30%",marginTop: "50px",marginRight: "30%"}}>
+            <Paper className={classes.padding} style={{ marginLeft: "20%",marginTop: "50px",marginRight: "20%"}}>
                 <div className={classes.margin}>
-                    <Grid container spacing={8} alignItems="flex-end">
+                    <Grid container spacing={3} alignItems="flex-end">
                         <Grid item>
                             <Face />
                         </Grid>
-                        <Grid item md={true} sm={true} xs={true}>
+                        <Grid item md={true} sm={false} xs={false}>
                             <TextField id="name" label="Name" type="name" fullWidth autoFocus required />
                         </Grid>
                     </Grid>
-                    <Grid container spacing={8} alignItems="flex-end">
+                    <Grid container spacing={3} alignItems="flex-end">
                         <Grid item>
                             <EmailIcon />
                         </Grid>
-                        <Grid item md={true} sm={true} xs={true}>
+                        <Grid item md={true} sm={false} xs={FormatListBulletedRounded}>
                             <TextField id="email" label="Email Address" type="email" fullWidth required />
                         </Grid>
                     </Grid>
-                    <Grid container spacing={8} alignItems="flex-end">
+                    <Grid container spacing={3} alignItems="flex-end">
                         <Grid item>
                             <LockIcon />
                         </Grid>
-                        <Grid item md={true} sm={true} xs={true}>
+                        <Grid item md={true} sm={false} xs={false}>
                             <TextField id="password" label="Password" type="Password" fullWidth required />
                         </Grid>
                     </Grid>
-                    <Grid container spacing={8} alignItems="flex-end">
+                    <Grid container spacing={3} alignItems="flex-end">
                         <Grid item>
                             <Fingerprint />
                         </Grid>
-                        <Grid item md={true} sm={true} xs={true}>
-                            <TextField id="password" label="Confirm Password" type="Password" fullWidth required />
+                        <Grid item md={true} sm={false} xs={false}>
+                            <TextField id="confirmpassword" label="Confirm Password" type="Password" fullWidth required />
                         </Grid>
                     </Grid>
                     <Grid container alignItems="center" justify="space-between">
