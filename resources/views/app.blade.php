@@ -8,8 +8,8 @@
         <link href="{{mix('css/app.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
-    <h2 style="text-align: center"> Laravel and React application </h2>
-        <div id="example"></div>
+    <h2 style="text-align: center;margin-top:50px;">Customer Relation Management</h2>
+        <div id="root"></div>
         <script src="{{mix('js/app.js')}}" ></script>
     </body>
 </html>
