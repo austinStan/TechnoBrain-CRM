@@ -5,13 +5,13 @@ import Signup from "../components/auth/Signup/Signup";
 
 function App() {
     return (
-        <div>
+        
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={Signup} />
                 </Switch>
             </BrowserRouter>
-        </div>
+        
     );
 }
 

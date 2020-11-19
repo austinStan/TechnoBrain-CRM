@@ -4,12 +4,12 @@ import { Face, Fingerprint } from '@material-ui/icons';
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit * 2,
+
     },
     padding: {
         padding: theme.spacing.unit
     }
 });
-
 
 class Signup extends React.Component {
     render() {
@@ -45,9 +45,12 @@ class Signup extends React.Component {
                             <Button disableFocusRipple disableRipple style={{ textTransform: "none" }} variant="text" color="primary">Forgot password ?</Button>
                         </Grid>
                     </Grid>
-                    <Grid container justify="center" style={{ marginTop: '10px' }}>
-                        <Button variant="outlined" color="primary" style={{ textTransform: "none" }}>Login</Button>
+                    <Grid container justify="center" style={{ marginTop: '10px'}}>
+                        <Button variant="outlined"  color="primary" style={{ textTransform: "none",marginRight:'8px' }}>Login</Button>
+                        
+                        <Button variant="outlined"  color="success" style={{ textTransform: "none" }}>Register</Button>
                     </Grid>
+                    
                 </div>
             </Paper>
         );
