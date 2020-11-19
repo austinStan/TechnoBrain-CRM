@@ -1,17 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Button from "@material-ui/core/Button";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+import Signup from "../components/auth/Signup/Signup";
 
 function App() {
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <Button variant="contained" color="primary">
-                        Hello World
-                    </Button>
-                </div>
-            </div>
+        <div>
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path="/" component={Signup} />
+                </Switch>
+            </BrowserRouter>
         </div>
     );
 }
