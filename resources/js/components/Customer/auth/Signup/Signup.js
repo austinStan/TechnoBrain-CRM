@@ -1,5 +1,7 @@
 import React from "react";
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
+import EmailIcon from '@material-ui/icons/Email';
+import LockIcon from '@material-ui/icons/Lock';
 import { Face, Fingerprint } from '@material-ui/icons';
 const styles = theme => ({
     margin: {
@@ -15,7 +17,7 @@ class Signup extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <Paper className={classes.padding}>
+            <Paper className={classes.padding} style={{ marginLeft: "30%",marginTop: "50px",marginRight: "30%"}}>
                 <div className={classes.margin}>
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
@@ -27,7 +29,7 @@ class Signup extends React.Component {
                     </Grid>
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
-                            <Fingerprint />
+                            <EmailIcon />
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
                             <TextField id="email" label="Email Address" type="email" fullWidth required />
@@ -35,7 +37,7 @@ class Signup extends React.Component {
                     </Grid>
                     <Grid container spacing={8} alignItems="flex-end">
                         <Grid item>
-                            <Fingerprint />
+                            <LockIcon />
                         </Grid>
                         <Grid item md={true} sm={true} xs={true}>
                             <TextField id="password" label="Password" type="Password" fullWidth required />
@@ -62,7 +64,7 @@ class Signup extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid container justify="center" style={{ marginTop: '10px'}}>
-                        <Button variant="outlined"  color="primary" style={{ textTransform: "none",marginRight:'8px' }}>Login</Button>
+                      
                         
                         <Button variant="outlined"  color="success" style={{ textTransform: "none" }}>Register</Button>
                     </Grid>
