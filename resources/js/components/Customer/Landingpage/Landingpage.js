@@ -1,9 +1,11 @@
 import React from "react";
 import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 function Landingpage() {
     return (
         <div style={{ textAlign: "center",marginTop: "50px" }}>
+            <Link to ="/signin">
             <Button
                 variant="outlined"
                 color="primary"
@@ -11,7 +13,8 @@ function Landingpage() {
             >
                 Login
             </Button>
-
+            </Link>
+            <Link to ="/signup">
             <Button
                 variant="outlined"
                 color="success"
@@ -19,6 +22,7 @@ function Landingpage() {
             >
                 Register
             </Button>
+            </Link>
         </div>
     );
 }

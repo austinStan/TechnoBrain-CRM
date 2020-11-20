@@ -3,6 +3,7 @@ import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox 
 import EmailIcon from '@material-ui/icons/Email';
 import LockIcon from '@material-ui/icons/Lock';
 import { Face, Fingerprint, FormatListBulletedRounded } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit * 2,
@@ -66,7 +67,8 @@ class Signup extends React.Component {
                     <Grid container justify="center" style={{ marginTop: '10px'}}>
                       
                         
-                        <Button variant="outlined"  color="success" style={{ textTransform: "none" }}>Register</Button>
+                        <Button variant="outlined"  color="success" style={{ textTransform: "none",marginRight:'4px'}}>Register</Button>
+                        <Link to='/'><Button variant="outlined"  color="secondary" style={{ textTransform: "none" }}>Home</Button></Link>
                     </Grid>
                     
                 </div>

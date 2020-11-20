@@ -2,6 +2,7 @@ import React from "react";
 import { Paper, withStyles, Grid, TextField, Button, FormControlLabel, Checkbox } from '@material-ui/core';
 import { Face  } from '@material-ui/icons';
 import LockIcon from '@material-ui/icons/Lock';
+import { Link } from 'react-router-dom';
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit * 2,
@@ -47,7 +48,8 @@ class Signin extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid container justify="center" style={{ marginTop: '10px'}}>
-                        <Button variant="outlined"  color="primary" style={{ textTransform: "none" }}>Login</Button>
+                        <Button variant="outlined"  color="primary" style={{ textTransform: "none",marginRight:'4px' }}>Login</Button>
+                      <Link to='/'><Button variant="outlined"  color="secondary" style={{ textTransform: "none" }}>Home</Button></Link>
                     </Grid>
                     
                 </div>
