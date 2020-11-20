@@ -4,6 +4,10 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Signin from "./Customer/auth/Signin/Signin";
 import Signup from './Customer/auth/Signup/Signup';
 import Landingpage from './Customer/Landingpage/Landingpage';
+import '../components/Customer/Dashboard/assets/css/bootstrap.min.css';
+import '../components/Customer/Dashboard/assets/css/light-bootstrap-dashboard.css';
+import '../components/Customer/Dashboard/assets/css/dashboard.css';
+
 
 function App() {
     return (
