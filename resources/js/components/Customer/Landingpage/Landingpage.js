@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function Landingpage() {
     return (
         <div style={{ textAlign: "center",marginTop: "50px" }}>
+             
             <Link to ="/signin">
             <Button
                 variant="outlined"
@@ -17,7 +18,7 @@ function Landingpage() {
             <Link to ="/signup">
             <Button
                 variant="outlined"
-                color="success"
+                color="secondary"
                 style={{ textTransform: "none" }}
             >
                 Register
