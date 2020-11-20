@@ -17,6 +17,11 @@ class Signin extends React.Component {
     render() {
         const { classes } = this.props;
         return (
+            <>
+            <div>
+            <h2 style={{textAlign: "center",marginTop:"50px"}}>Customers Relation Management</h2>
+            <h4 style={{textAlign: "center",marginTop:"60px"}}>SignUp As Customer</h4>
+            </div>
             <Paper className={classes.padding} style={{ marginLeft: "20%",marginTop: "50px",marginRight: "20%"}}>
                 <div className={classes.margin} >
                     <Grid container spacing={2} alignItems="flex-end">
@@ -54,6 +59,7 @@ class Signin extends React.Component {
                     
                 </div>
             </Paper>
+            </>
         );
     }
 }

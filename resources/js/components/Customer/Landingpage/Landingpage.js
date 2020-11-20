@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 
 function Landingpage() {
     return (
+        <>
+        <div>
+        <h2 style={{textAlign: "center",marginTop:"50px"}}>Customers Relation Management</h2>
+        <h4 style={{textAlign: "center",marginTop:"60px"}}>SignUp As Customer</h4>
+        </div>
         <div style={{ textAlign: "center",marginTop: "50px" }}>
-             
+    
             <Link to ="/signin">
             <Button
                 variant="outlined"
@@ -25,6 +30,7 @@ function Landingpage() {
             </Button>
             </Link>
         </div>
+        </>
     );
 }
 

@@ -10,8 +10,7 @@
         <link href="{{mix('css/app.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
-    <h2 style="text-align: center;margin-top:50px;">Customers Relation Management</h2>
-    <h4 style="text-align: center;margin-top:60px;">SignUp As Customer</h4>
+  
         <div id="root"></div>
         <script src="{{mix('js/app.js')}}" ></script>
     </body>
