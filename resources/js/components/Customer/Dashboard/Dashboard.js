@@ -3,9 +3,8 @@ import Sidebar from './Sidebar';
 
 function Dashboard() {
     return (
-        <div>
+        <div className="wrapper">
             <Sidebar/>
-            <h1>hello world</h1>
         </div>
     )
 }

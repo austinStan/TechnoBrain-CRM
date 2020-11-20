@@ -4,7 +4,7 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Signin from "./Customer/auth/Signin/Signin";
 import Signup from './Customer/auth/Signup/Signup';
 import Landingpage from './Customer/Landingpage/Landingpage';
-import Dashboard from './Customer/Dashboard/Dashboard';
+import Main from './Customer/Dashboard/Main';
 import '../components/Customer/Dashboard/assets/css/bootstrap.min.css';
 import '../components/Customer/Dashboard/assets/css/light-bootstrap-dashboard.css';
 import '../components/Customer/Dashboard/assets/css/dashboard.css';
@@ -18,7 +18,7 @@ function App() {
                     <Route exact path="/" component={Landingpage} />
                     <Route exact path="/signin" component={Signin} />
                     <Route exact path="/signup" component={Signup} />
-                    <Route exact path="/dashboard" component={Dashboard} />
+                    <Route exact path="/main" component={Main} />
 
                 </Switch>
             </BrowserRouter>
