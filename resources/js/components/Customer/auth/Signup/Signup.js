@@ -6,10 +6,12 @@ import {
     TextField,
     Button,
     FormControlLabel,
-    Checkbox
+    Checkbox,
+    CircularProgress
 } from "@material-ui/core";
 import EmailIcon from "@material-ui/icons/Email";
 import LockIcon from "@material-ui/icons/Lock";
+import "bootstrap/dist/css/bootstrap.css";
 import {
     Face,
     Fingerprint,
@@ -26,7 +28,6 @@ const styles = theme => ({
 });
 
 class Signup extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -36,46 +37,55 @@ class Signup extends React.Component {
                 password: "",
                 isLoading: ""
             },
-            msg: ""
+            msg: "",
+         
+
         };
+        this.onChangehandler = this.onChangehandler.bind(this);
+        this.onSubmitHandler = this.onSubmitHandler.bind(this);
     }
-   onChangehandler = (e,key) => {
+
+    onChangehandler = (e, key) => {
         const { signupData } = this.state;
         signupData[e.target.name] = e.target.value;
+        console.log(signupData);
         this.setState({ signupData });
     };
-    // onSubmitHandler = (e) => {
-    //     e.preventDefault();
-    //     this.setState({ isLoading: true });
-    //     axios
-    //       .post("http://localhost:8000/api/user-signup", this.state.signupData)
-    //       .then((response) => {
-    //         this.setState({ isLoading: false });
-    //         if (response.data.status === 200) {
-    //           this.setState({
-    //             msg: response.data.message,
-    //             signupData: {
-    //               name: "",
-    //               email: "",
-    //               phone: "",
-    //               password: "",
-    //             },
-    //           });
-    //           setTimeout(() => {
-    //             this.setState({ msg: "" });
-    //           }, 2000);
-    //         }
-    
-    //         if (response.data.status === "failed") {
-    //           this.setState({ msg: response.data.message });
-    //           setTimeout(() => {
-    //             this.setState({ msg: "" });
-    //           }, 2000);
-    //         }
-    //       });
-    //   };
+    onSubmitHandler = e => {
+        e.preventDefault();
+        this.setState({ isLoading: true });
+        axios
+            .post(
+                "http://localhost:8000/api/user-signup",
+                this.state.signupData
+            )
+            .then(response => {
+                this.setState({ isLoading: false });
+                if (response.data.status === 200) {
+                    this.setState({
+                        msg: response.data.message,
+                        signupData: {
+                            name: "",
+                            email: "",
+                            password: ""
+                        }
+                    });
+                    setTimeout(() => {
+                        this.setState({ msg: "" });
+                    }, 2000);
+                }
+
+                if (response.data.status === "failed") {
+                    this.setState({ msg: response.data.message });
+                    setTimeout(() => {
+                        this.setState({ msg: "" });
+                    }, 2000);
+                }
+            });
+    };
     render() {
         const { classes } = this.props;
+        const isLoading = this.state.isLoading;
         return (
             <>
                 <div>
@@ -86,6 +96,7 @@ class Signup extends React.Component {
                         SignUp As Customer
                     </h4>
                 </div>
+              
                 <Paper
                     className={classes.padding}
                     style={{
@@ -94,6 +105,9 @@ class Signup extends React.Component {
                         marginRight: "20%"
                     }}
                 >
+                    <div className='text-danger'>
+                    {this.state.msg}
+                    </div>
                     <div className={classes.margin}>
                         <Grid container spacing={3} alignItems="flex-end">
                             <Grid item>
@@ -104,6 +118,7 @@ class Signup extends React.Component {
                                     id="name"
                                     label="Name"
                                     type="name"
+                                    name="name"
                                     fullWidth
                                     autoFocus
                                     required
@@ -126,6 +141,7 @@ class Signup extends React.Component {
                                     id="email"
                                     label="Email Address"
                                     type="email"
+                                    name="email"
                                     fullWidth
                                     required
                                     value={this.state.signupData.email}
@@ -142,6 +158,7 @@ class Signup extends React.Component {
                                     id="password"
                                     label="Password"
                                     type="Password"
+                                    name="password"
                                     fullWidth
                                     required
                                     value={this.state.signupData.password}
@@ -187,6 +204,11 @@ class Signup extends React.Component {
                                 onClick={this.onSubmitHandler}
                             >
                                 Register
+                                {isLoading ? (
+                                    <CircularProgress />
+                                ) : (
+                                    <span></span>
+                                )}
                             </Button>
                             <Link to="/">
                                 <Button
