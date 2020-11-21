@@ -21,11 +21,12 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-lg " color-on-scroll="500">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">Dashboard</a>
-          <h5> Welcome, {user.name} </h5> You have Logged in
-            successfully.
           <div className="collapse navbar-collapse justify-content-end" id="navigation">
+          <h6> Welcome, {user.name}  You have Logged in
+            successfully.</h6>
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
+             
                 <Link className="nav-link" to='/'>
                   <span className="no-icon" onClick={this.onLogoutHandler}>Log out</span>
                 </Link>

@@ -17,7 +17,7 @@ import {
     Fingerprint,
     FormatListBulletedRounded
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link,Redirect} from "react-router-dom";
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit * 2
@@ -35,7 +35,8 @@ class Signup extends React.Component {
                 name: "",
                 email: "",
                 password: "",
-                isLoading: ""
+                isLoading: "",
+                redirect:false
             },
             msg: "",
          
@@ -62,13 +63,19 @@ class Signup extends React.Component {
             .then(response => {
                 this.setState({ isLoading: false });
                 if (response.data.status === 200) {
+                    localStorage.setItem("isLoggedIn", true);
+                    localStorage.setItem(
+                        "userData",
+                        JSON.stringify(response.data.data)
+                    );
                     this.setState({
                         msg: response.data.message,
                         signupData: {
                             name: "",
                             email: "",
                             password: ""
-                        }
+                        },
+                        redirect: true
                     });
                     setTimeout(() => {
                         this.setState({ msg: "" });
@@ -86,6 +93,13 @@ class Signup extends React.Component {
     render() {
         const { classes } = this.props;
         const isLoading = this.state.isLoading;
+        if (this.state.redirect) {
+            return <Redirect to="/main" />;
+        }
+        const login = localStorage.getItem("isLoggedIn");
+        if (login) {
+            return <Redirect to="/main" />;
+        }
         return (
             <>
                 <div>
