@@ -58,7 +58,8 @@ class CustomersCrudController extends CrudController
     {
         CRUD::setValidation(CustomersRequest::class);
 
-        CRUD::setFromDb(); // fields
+         CRUD::setFromDb(); // fields
+        // $this->crud->setColumns(['title', 'name','email']);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

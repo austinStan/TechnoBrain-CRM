@@ -18,6 +18,7 @@ class AgentsCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use ColsCrudTrait, FieldsCrudTrait;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -39,13 +40,11 @@ class AgentsCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
-         */
+        // CRUD::setFromDb(); // columns
+        $name =$this->addColumn('name','Agent Name');
+         
+        CRUD::addColumns([$name]);
+       
     }
 
     /**
@@ -58,7 +57,20 @@ class AgentsCrudController extends CrudController
     {
         CRUD::setValidation(AgentsRequest::class);
 
-        CRUD::setFromDb(); // fields
+        // CRUD::setFromDb(); // fields
+        $this->crud->addField([   // date_picker
+            'name' => 'name',
+            'label' => "Agent Name",
+            'type' => 'text'
+         ]);
+        $this->crud->addField([
+            'label' => 'Company Name',
+            'type' => 'select2',
+            'name' => 'company_id', // the db column for the foreign key
+            'entity' => 'company', // the method that defines the relationship in your Model
+            'attribute' => 'name', // foreign key attribute that is shown to user
+            'model' => 'App\Models\Company'
+        ]);
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:

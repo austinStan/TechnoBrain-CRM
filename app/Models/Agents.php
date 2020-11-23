@@ -32,6 +32,10 @@ class Agents extends Model
     {
         return $this->belongsTo('App\Models\Company', 'company_id');
     }
+    public function customers()
+    {
+        return $this->hasMany('App\Customer', 'agents_id');
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
