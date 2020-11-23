@@ -28,7 +28,10 @@ class Agents extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-
+    public function company()
+    {
+        return $this->belongsTo('App\Models\Company', 'company_id');
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

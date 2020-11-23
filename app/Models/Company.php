@@ -28,6 +28,10 @@ class Company extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function agents()
+    {
+         return $this->hasMany('App\Models\Agents', 'company_id');
+    }
 
     /*
     |--------------------------------------------------------------------------
