@@ -5,8 +5,9 @@ import {
     Grid,
     TextField,
     Button,
-    FormControlLabel,
-    Checkbox,
+    FormControl,
+    InputLabel,
+    Select,
     CircularProgress
 } from "@material-ui/core";
 import EmailIcon from "@material-ui/icons/Email";
@@ -17,14 +18,21 @@ import {
     Fingerprint,
     FormatListBulletedRounded
 } from "@material-ui/icons";
-import { Link,Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit * 2
     },
     padding: {
         padding: theme.spacing.unit
-    }
+    },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+      },
+      selectEmpty: {
+        marginTop: theme.spacing(2),
+      },
 });
 
 class Signup extends React.Component {
@@ -36,21 +44,29 @@ class Signup extends React.Component {
                 email: "",
                 password: "",
                 isLoading: "",
-                redirect:false
+                redirect: false,
+                title:"",                   
             },
             msg: "",
-         
-
+           
+          
+          
+          
+           
         };
         this.onChangehandler = this.onChangehandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this);
     }
 
     onChangehandler = (e, key) => {
-        const { signupData } = this.state;
+        const { signupData} = this.state;
         signupData[e.target.name] = e.target.value;
+
+         
         console.log(signupData);
-        this.setState({ signupData });
+    
+        this.setState({ signupData
+        });
     };
     onSubmitHandler = e => {
         e.preventDefault();
@@ -110,7 +126,7 @@ class Signup extends React.Component {
                         SignUp As Customer
                     </h4>
                 </div>
-              
+
                 <Paper
                     className={classes.padding}
                     style={{
@@ -119,10 +135,28 @@ class Signup extends React.Component {
                         marginRight: "20%"
                     }}
                 >
-                    <div className='text-danger'>
-                    {this.state.msg}
-                    </div>
+                    <div className="text-danger">{this.state.msg}</div>
                     <div className={classes.margin}>
+                    <Grid container spacing={3} alignItems="flex-end">
+                            <Grid item>
+                                <Face />
+                            </Grid>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel>
+                                Title
+                            </InputLabel>
+                            <Select
+                                native
+                                name="title"
+                                value={this.state.signupData.title}
+                                onChange={this.onChangehandler}
+                            >
+                                <option value="Mr">Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Miss">Miss</option>
+                            </Select>
+                        </FormControl>
+                       </Grid>
                         <Grid container spacing={3} alignItems="flex-end">
                             <Grid item>
                                 <Face />
@@ -184,8 +218,7 @@ class Signup extends React.Component {
                             container
                             alignItems="center"
                             justify="space-between"
-                        > 
-                        </Grid>
+                        ></Grid>
                         <Grid
                             container
                             justify="center"

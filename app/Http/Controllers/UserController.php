@@ -12,6 +12,7 @@ class UserController extends Controller
 
     public function userSignUp(Request $request) {
         $validator              =        Validator::make($request->all(), [
+            "title"             =>          "required",
             "name"              =>          "required",
             "email"             =>          "required|email",
             "password"          =>          "required"
@@ -20,6 +21,7 @@ class UserController extends Controller
             return response()->json(["status" => "failed", "message" => "validation_error", "errors" => $validator->errors()]);
         }
         $userDataArray          =       array(
+            "title"          =>          $request->title,
             "name"          =>          $request->name,
             "email"              =>     $request->email,
             "password"           =>     md5($request->password)
@@ -85,7 +87,7 @@ class UserController extends Controller
         public function userDetail($email) {
             $user               =       array();
             if($email != "") {
-                $user           =       User::where("email", $email)->first();
+                $user           =User::where("email", $email)->first();
                 return $user;
             }
         }
