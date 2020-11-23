@@ -45,7 +45,7 @@ class Signup extends React.Component {
                 password: "",
                 isLoading: "",
                 redirect: false,
-                title:"",                   
+                title:"Mr",                   
             },
             msg: "",
            
@@ -61,7 +61,7 @@ class Signup extends React.Component {
     onChangehandler = (e, key) => {
         const { signupData} = this.state;
         signupData[e.target.name] = e.target.value;
-
+        
          
         console.log(signupData);
     

@@ -28,10 +28,6 @@ class Customers extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function agents()
-    {
-        return $this->belongsTo('App\Models\Agents', 'agents_id');
-    }
 
     /*
     |--------------------------------------------------------------------------

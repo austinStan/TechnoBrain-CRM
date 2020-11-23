@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\CustomersRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Traits\ColsCrudTrait;
+use App\Traits\FieldsCrudTrait;
 
 /**
  * Class CustomersCrudController
@@ -18,6 +20,7 @@ class CustomersCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
+    use ColsCrudTrait, FieldsCrudTrait;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -39,8 +42,15 @@ class CustomersCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        // CRUD::setFromDb(); // columns
 
+        $title=$this->textCol('name','title');
+        $name=$this->textCol('name','Name');
+        $email=$this->emailCol('email','Email');
+
+        
+     
+        CRUD::addColumns([$title,$name,$email]);
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -60,7 +70,11 @@ class CustomersCrudController extends CrudController
 
         //  CRUD::setFromDb(); // fields
         // $this->crud->setColumns(['title', 'name','email']);
+        $title = $this->text('title', 'Title');
+        $name = $this->text('name', 'Name');
+        $email =$this->text('email','Email');
 
+        CRUD::addFields([$title, $name,$email]);
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
