@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5|^8.0",
-        "backpack/crud": "4.0.*",
+        "backpack/crud": "^4.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
@@ -18,12 +18,14 @@
         "laravel/ui": "^2.4"
     },
     "require-dev": {
+        "backpack/generators": "^3.1",
         "facade/ignition": "^2.0",
         "fakerphp/faker": "^1.9.1",
         "laracasts/generators": "^2.0",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.3",
-        "phpunit/phpunit": "^8.5.8|^9.3.3"
+        "phpunit/phpunit": "^8.5.8|^9.3.3",
+        "webfactor/laravel-generators": "dev-master"
     },
     "config": {
         "optimize-autoloader": true,
