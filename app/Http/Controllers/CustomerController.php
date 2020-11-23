@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Customer;
 use Illuminate\Support\Facades\Validator;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
     private $status_code    =200;
 
@@ -27,13 +27,13 @@ class UserController extends Controller
             "password"           =>     md5($request->password)
         );
 
-        $user_status            =           User::where("email", $request->email)->first();
+        $user_status            =           Customer::where("email", $request->email)->first();
 
         if(!is_null($user_status)) {
             return response()->json(["status" => "failed", "success" => false, "message" => "Whoops! email already registered"]);
          }
 
-         $user =User::create($userDataArray);
+         $user =Customer::create($userDataArray);
 
          if(!is_null($user)) {
             return response()->json(["status" => $this->status_code, "success" => true, "message" => "Registration completed successfully", "data" => $user]);
@@ -59,13 +59,13 @@ class UserController extends Controller
 
 
         // check if entered email exists in db
-        $email_status       =       User::where("email", $request->email)->first();
+        $email_status       =       Customer::where("email", $request->email)->first();
 
 
         // if email exists then we will check password for the same email
 
         if(!is_null($email_status)) {
-            $password_status    =   User::where("email", $request->email)->where("password", md5($request->password))->first();
+            $password_status    =   Customer::where("email", $request->email)->where("password", md5($request->password))->first();
 
             // if password is correct
             if(!is_null($password_status)) {
@@ -87,7 +87,7 @@ class UserController extends Controller
         public function userDetail($email) {
             $user               =       array();
             if($email != "") {
-                $user           =User::where("email", $email)->first();
+                $user           =Customer::where("email", $email)->first();
                 return $user;
             }
         }
