@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\AgentsRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use App\Traits\ColsCrudTrait;
+use App\Traits\FieldsCrudTrait;
 
 /**
  * Class AgentsCrudController
@@ -41,9 +43,9 @@ class AgentsCrudController extends CrudController
     protected function setupListOperation()
     {
         // CRUD::setFromDb(); // columns
-        $name =$this->addColumn('name','Agent Name');
-         
-        CRUD::addColumns([$name]);
+        $name =$this->textCol('name','Agent Name');
+        $company = $this->selectOneManyCol('company_id', 'Company', 'company', 'name', Company::class);
+        CRUD::addColumns([$name,$company]);
        
     }
 
